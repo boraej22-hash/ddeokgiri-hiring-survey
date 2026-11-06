@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>떡기리 채용 설문지 만들기</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">DDEOKGIRI · RECRUIT</p>
+      <h1>채용 설문지 만들기</h1>
+      <p>떡기리에 맞는 질문을 골라 지원자에게 보낼 설문지를 만들어요</p>
+    </div>
+    <a class="btn" href="admin.html">지원자 응답 확인</a>
+  </header>
+
+  <main class="layout">
+    <div class="stack">
+      <section class="card">
+        <div class="sec-head"><div><h2>0. 채용 정보</h2><p>어떤 자리를 뽑는지 먼저 골라 주세요.</p></div></div>
+        <label class="field" for="team" style="margin-top:12px">채용팀</label>
+        <select id="team"><option value="">채용팀 선택</option></select>
+      </section>
+
+      <section class="card">
+        <div class="sec-head">
+          <div><h2>1. 인재상 선택</h2><p>최대 3개까지 고를 수 있어요.</p></div>
+          <span class="count" id="traitCount">0 / 3</span>
+        </div>
+        <div class="chips" id="chips"></div>
+        <p class="legend"><b>떡기리</b> 표시는 떡기리 인재상 진단 결과예요. (주도성 → 자기주도성 · 적응력 → 적응력 · 민첩성 → 우선순위 판단)</p>
+      </section>
+
+      <section class="card" id="qSection">
+        <div class="sec-head">
+          <div><h2>2. 질문 선택</h2><p>고른 인재상의 질문을 합쳐서 꼭 10개를 골라 주세요.</p></div>
+          <span class="count" id="baseCount">0 / 10</span>
+        </div>
+        <div id="groups"></div>
+      </section>
+
+      <section class="card">
+        <div class="sec-head">
+          <div><h2>3. 직접 질문 추가</h2><p>사장님이 더 묻고 싶은 질문을 넣어 주세요. (선택, 최대 20개)</p></div>
+          <span class="count" id="customCount">0 / 20</span>
+        </div>
+        <div class="custom-add">
+          <div style="flex:1">
+            <textarea id="customInput" maxlength="500" placeholder="예) 주말 오전 근무가 가능한가요?"></textarea>
+            <div class="charcount" id="customLen">0 / 500</div>
+          </div>
+          <button class="btn primary" id="customAdd" type="button">질문 추가</button>
+        </div>
+        <ul class="custom-list" id="customList"></ul>
+        <button class="btn small" id="customReset" type="button" style="margin-top:8px">떡기리 대표 질문 다시 넣기</button>
+      </section>
+    </div>
+
+    <aside class="card preview">
+      <div class="preview-bar">
+        <div><b>설문지 미리보기</b> · <span id="pvCount">0개 문항</span></div>
+        <button class="btn primary" id="makeLink" type="button" disabled>설문 링크 만들기</button>
+      </div>
+      <p class="hint" id="linkHint"></p>
+      <div class="linkbox" id="linkBox">
+        <b style="font-size:13px">지원자에게 보낼 링크</b>
+        <input type="text" id="linkOut" readonly>
+        <div class="row">
+          <button class="btn primary small" id="copyLink" type="button">링크 복사</button>
+          <a class="btn small" id="openLink" target="_blank" rel="noopener">설문지 열어 보기</a>
+        </div>
+      </div>
+      <div class="paper" id="paper"></div>
+    </aside>
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/builder.js"></script>
+</body>
+</html>
